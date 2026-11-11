@@ -1,13 +1,23 @@
-# URRT Task Board V2.1 (Android WebView)
+# URRT Task Board V2.2 (Android WebView)
 
 Lightweight offline task board for the UIU Rescue Rover Team. The Android app is a Java Activity hosting a local HTML/CSS/JavaScript interface in WebView; it is not a native Android UI.
+
+## V2.2 visual refinement
+
+- Kept the light workspace and existing navy header; no full dark theme added.
+- Glossy light controls with subtle gradients, highlights, soft shadows, and pressed states.
+- Refined task cards and add-task form layout.
+- Added Assign Date (defaults to today if left blank) and Deadline fields.
+- Task cards show assign date, deadline, and a live remaining/overdue day label; completed tasks show Completed.
+- Rejects a deadline earlier than the assign date.
+- Logo path: `app/src/main/assets/logo.png`. Put your image there and name it exactly `logo.png`.
 
 ## V2.1 visual refinement
 
 - Refined task cards, priority accent rails, status chips, team panels, toolbar, critical-deadline panel, and add-task form.
 - Updated header logo asset path to `app/src/main/assets/logo.png`. Place the team logo image at that exact path; use PNG format and preferably a square transparent image.
 - No new task-management features or data-schema changes.
-- Android app version `2.1.0` (versionCode 3).
+- Android app version `2.2.0` (versionCode 4).
 
 ## V2 changes
 
@@ -18,7 +28,7 @@ Lightweight offline task board for the UIU Rescue Rover Team. The Android app is
 - Status and priority filters, with a one-tap clear action.
 - Admin-only JSON backup generation and paste-based restore.
 - Existing V1 localStorage keys and task structure retained: `urrt_v4`, `urrt_config`, `urrt_logs`, `urrt_accounts`.
-- Android app version `2.1.0` (versionCode 3).
+- Android app version `2.2.0` (versionCode 4).
 
 ## Build with GitHub Actions
 
