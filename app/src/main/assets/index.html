@@ -113,6 +113,38 @@ body{background:#eef4f5}
 .toolbar #statusFilter:focus,.toolbar #priorityFilter:focus,.add-form .task-options select:focus{outline:none;border-color:#78bcb5;box-shadow:0 0 0 2px rgba(25,183,167,.11),inset 0 1px 0 #fff;}
 .tag.assigned-by{background:#edf5f4;color:#35665f;border:1px solid #d9e9e6;}
 
+
+
+/* V2.6: normalize selector control size to match finder input and clear button. */
+.toolbar #statusFilter,.toolbar #priorityFilter{height:42px!important;min-height:42px;line-height:40px;padding:0 12px!important;vertical-align:middle;font-size:13px;box-sizing:border-box;}
+.add-form .task-options select{height:42px!important;min-height:42px;line-height:40px;padding:0 12px!important;vertical-align:middle;font-size:13px;box-sizing:border-box;}
+.toolbar #taskSearch,.toolbar-row .btn{height:42px!important;min-height:42px;box-sizing:border-box;}
+
+/* V2.5.2: force legacy Android WebView selects to use the same full control height. */
+.toolbar #statusFilter,
+.toolbar #priorityFilter,
+.add-form .task-options select{
+  display:block !important;
+  -webkit-appearance:none !important;
+  appearance:none !important;
+  box-sizing:border-box !important;
+  height:48px !important;
+  min-height:48px !important;
+  padding:0 30px 0 12px !important;
+  line-height:46px !important;
+  font-size:14px !important;
+  border:1px solid #cbdcde !important;
+  border-radius:8px !important;
+  background-color:#fff !important;
+  background-image:linear-gradient(45deg,transparent 50%,#526b70 50%),linear-gradient(135deg,#526b70 50%,transparent 50%),linear-gradient(to bottom,#ffffff,#f1f6f6) !important;
+  background-position:94% 20px,97% 20px,0 0 !important;
+  background-size:5px 5px,5px 5px,100% 100% !important;
+  background-repeat:no-repeat !important;
+  box-shadow:0 2px 5px rgba(26,55,63,.055),inset 0 1px 0 #fff !important;
+}
+.toolbar #statusFilter:focus,.toolbar #priorityFilter:focus,
+.add-form .task-options select:focus{outline:none !important;border-color:#7ebdb7 !important}
+
 </style>
 </head>
 <body>
