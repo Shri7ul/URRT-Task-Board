@@ -52,4 +52,4 @@ A backup includes board data, settings, activity logs, and locally stored lead a
 V2.3: V2.1 button/control styling retained. Gloss applied to team/task cards only; compact assign/deadline date row added. Uses ES5 and float-based layout for Android 4.2.2 WebView.
 
 
-V2.4 UI refinement: task finder controls use full-width floated layout (no flexbox); glossy control surfaces; login remembers lead name but clears password on open/close; custom month calendar picker for assign date/deadline; assign date defaults to today. Uses ES5-compatible JavaScript and legacy WebView CSS.
+V2.5 UI refinement: task finder controls use full-width floated layout (no flexbox); glossy control surfaces; login remembers lead name but clears password on open/close; custom month calendar picker for assign date/deadline; assign date defaults to today. Uses ES5-compatible JavaScript and legacy WebView CSS.
