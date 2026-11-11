@@ -1,29 +1,42 @@
-# URRT Task Board — Android 4.2.2 APK project
+# URRT Task Board V2 (Android WebView)
 
-Offline Android WebView wrapper for the legacy-compatible task board.
+Lightweight offline task board for the UIU Rescue Rover Team. The Android app is a Java Activity hosting a local HTML/CSS/JavaScript interface in WebView; it is not a native Android UI.
 
-## Build APK without Android Studio (GitHub Actions)
+## V2 changes
 
-1. Extract this ZIP.
-2. Create a new GitHub repository.
-3. Upload the complete `URRT_Android_App` folder contents, including its hidden `.github` folder.
-   The repository root must contain the `URRT_Android_App` folder.
-4. Commit to the `main` branch, or open **Actions** and run **Build URRT Android APK**.
-5. Wait for the workflow to finish successfully.
-6. Open the completed workflow run and download artifact `URRT-Task-Board-debug-APK`.
-7. Extract the artifact ZIP; it contains `app-debug.apk`.
-8. Copy the APK to the tablet over USB and install it. Enable **Settings → Security → Unknown sources** if prompted.
+- Hybrid interface: dark command header/navigation with a light task workspace and teal accents.
+- Task priority: Critical, High, Medium, Low. New tasks default to Medium; legacy tasks without a priority are migrated in memory to Medium and saved on the next write.
+- Priority-first task ordering within each subteam.
+- Global task search across task title, assignee, and subteam name.
+- Status and priority filters, with a one-tap clear action.
+- Admin-only JSON backup generation and paste-based restore.
+- Existing V1 localStorage keys and task structure retained: `urrt_v4`, `urrt_config`, `urrt_logs`, `urrt_accounts`.
+- Android app version `2.0.0` (versionCode 2).
 
-## Cloud build environment
+## Build with GitHub Actions
 
-GitHub Actions installs JDK 17, Gradle 8.2, Android SDK Platform 34 and Build Tools 34.0.0.
-No Android Studio is required on your laptop.
+The workflow `.github/workflows/build-apk.yml` builds a debug APK when pushed to `main` or manually dispatched.
 
-## Limitations
+1. Push the repository contents to GitHub.
+2. Open **Actions → Build URRT Android APK**.
+3. Run the workflow or push a commit to `main`.
+4. Download the `URRT-Task-Board-debug-APK` artifact.
 
-- Minimum Android API 17 (Android 4.2+); test on the actual tablet.
-- HTML is bundled locally; no network is needed to display the board.
-- App WebView localStorage is separate from browser localStorage.
-- Clearing app data or uninstalling can erase board data. Export/backup is not implemented.
-- Join-code and lead login are client-side gates, not secure authentication.
-- This workflow creates a debug APK, not a production-signed release.
+The workflow expects the project at `URRT_Android_App/` in the repository root.
+
+## Backup and restore
+
+1. Log in as Team Lead.
+2. Open **Backup / Restore**.
+3. Select **Generate backup**. The JSON is selected in the text area; copy it using the tablet's text-selection menu and store it privately.
+4. To restore, paste a previously generated JSON backup into the text area and select **Restore backup**.
+
+A backup includes board data, settings, activity logs, and locally stored lead account records. Account passwords are Base64-encoded in the existing V1 implementation; Base64 is reversible and is not password hashing. Treat backup JSON as sensitive. Restore replaces the current local data on that device.
+
+## Important limitations
+
+- Data is stored locally in the app WebView. This build does not synchronize across devices or users.
+- Lead login and join-code checks are client-side gates, not secure authentication or authorization. Anyone with access to the app's local storage or source can bypass them.
+- Backups are manual. Keep copies outside the app; clearing app data can erase the board.
+- This project targets Android API 17 minimum and uses legacy-compatible JavaScript/CSS. Actual rendering should still be checked on the target Android 4.2.2 tablet because vendor WebView implementations vary.
+- The workflow builds a debug APK, not a Play Store release-signed APK.
