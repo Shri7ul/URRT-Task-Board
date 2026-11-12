@@ -53,3 +53,15 @@ V2.3: V2.1 button/control styling retained. Gloss applied to team/task cards onl
 
 
 V2.5 UI refinement: task finder controls use full-width floated layout (no flexbox); glossy control surfaces; login remembers lead name but clears password on open/close; custom month calendar picker for assign date/deadline; assign date defaults to today. Uses ES5-compatible JavaScript and legacy WebView CSS.
+
+
+## Version 2.6.0 — Important Dates
+
+- Adds a Task Board / Important Dates page switch.
+- All team members with board access can view important dates.
+- Only a logged-in Team Lead can add, edit, or delete important dates.
+- Each date supports event name, date, location, description, preparation status, and manual preparation progress.
+- Upcoming dates are sorted chronologically; past dates are shown separately with elapsed-day counts.
+- Events are stored separately in `urrt_events`; the existing `urrt_v4` task data shape is unchanged.
+- JSON backups now include `urrt_events`; older backups without that field remain restorable.
+- Android minimum SDK remains API 17.
