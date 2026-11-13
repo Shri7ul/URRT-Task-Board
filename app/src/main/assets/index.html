@@ -131,6 +131,41 @@ body{background:#eef4f5}
 .event-card.past{opacity:.78}.event-top{overflow:hidden}.event-title{font-size:16px;font-weight:bold;color:#203840;float:left;max-width:72%;word-wrap:break-word}.event-actions{float:right}.event-actions button{border:1px solid #d7e2e3;background:linear-gradient(to bottom,#fff,#eef4f4);border-radius:6px;padding:5px 9px;color:#425a60;margin-left:4px}.event-countdown{font-size:26px;font-weight:bold;color:#0b9589;margin:10px 0 1px}.event-count-label{font-size:11px;color:#718389}.event-meta{font-size:12px;color:#63777d;margin-top:8px}.event-description{font-size:12px;color:#52676d;margin-top:8px;white-space:pre-wrap}.event-status{display:inline-block;padding:4px 8px;border-radius:5px;background:#eaf3f2;color:#28665e;font-size:11px;font-weight:bold;margin-top:8px}.event-progress{height:8px;background:#e8eeee;border-radius:10px;overflow:hidden;margin-top:7px}.event-progress span{display:block;height:8px;background:#15a58f}.event-section-title{font-size:12px;text-transform:uppercase;letter-spacing:.6px;color:#708187;margin:17px 2px 8px;font-weight:bold}
 @media(max-width:700px){.page-switch{margin:10px 10px 0}#eventsPage{padding:0 10px}.events-heading button{float:none;display:block;margin:10px 0 0}.event-title{max-width:100%;float:none}.event-actions{float:none;margin-top:8px}}
 
+
+/* V2.6.2 UI fixes: calendar must overlay the Add Important Date dialog. */
+#calendarOverlay{z-index:2200!important}
+#eventOverlay{z-index:1000!important}
+
+/* Restore full-size glossy selectors across finder, task form and event form. */
+.toolbar #statusFilter,
+.toolbar #priorityFilter,
+.add-form .task-options select,
+#eventOverlay #eventStatus{
+  display:block;
+  height:44px!important;
+  min-height:44px!important;
+  box-sizing:border-box;
+  padding:0 12px!important;
+  border:1px solid #cbdcde;
+  border-radius:8px;
+  background:linear-gradient(to bottom,#ffffff,#f1f6f6);
+  color:#304950;
+  box-shadow:0 2px 5px rgba(26,55,63,.055),inset 0 1px 0 #fff;
+  font-size:13px;
+  font-weight:600;
+  line-height:42px;
+  vertical-align:middle;
+}
+#eventOverlay #eventStatus{width:100%;margin:0}
+.toolbar #statusFilter:focus,
+.toolbar #priorityFilter:focus,
+.add-form .task-options select:focus,
+#eventOverlay #eventStatus:focus{
+  outline:none;
+  border-color:#78bcb5;
+  box-shadow:0 0 0 2px rgba(25,183,167,.11),inset 0 1px 0 #fff;
+}
+
 </style>
 </head>
 <body>
