@@ -65,3 +65,10 @@ V2.5 UI refinement: task finder controls use full-width floated layout (no flexb
 - Events are stored separately in `urrt_events`; the existing `urrt_v4` task data shape is unchanged.
 - JSON backups now include `urrt_events`; older backups without that field remain restorable.
 - Android minimum SDK remains API 17.
+
+
+## V2.6.1 — Durable local persistence
+
+The Android app now mirrors all persistent board records into app-private Android SharedPreferences through a local JavaScript bridge. Writes use synchronous `commit()` so task, settings, account, activity-log, and Important Dates changes are flushed to durable app storage before the UI continues. On first launch after upgrading, existing WebView localStorage values are migrated into SharedPreferences automatically. Existing storage keys and JSON backup format remain compatible.
+
+This protects data across screen-off, WebView recreation, app process termination, and device reboot. It does not protect against uninstalling/clearing app data, factory reset, storage corruption, or a device cleaner explicitly deleting app data. Keep periodic JSON backups.
