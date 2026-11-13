@@ -132,6 +132,45 @@ body{background:#eef4f5}
 @media(max-width:700px){.page-switch{margin:10px 10px 0}#eventsPage{padding:0 10px}.events-heading button{float:none;display:block;margin:10px 0 0}.event-title{max-width:100%;float:none}.event-actions{float:none;margin-top:8px}}
 
 
+/* V2.6.3: force Android 4.2 WebView selectors to render as full-height controls. */
+.toolbar select#statusFilter,
+.toolbar select#priorityFilter,
+.add-form .task-options select,
+#eventOverlay select#eventStatus{
+  -webkit-appearance:none!important;
+  appearance:none!important;
+  display:block!important;
+  height:48px!important;
+  min-height:48px!important;
+  max-height:48px!important;
+  box-sizing:border-box!important;
+  padding:0 34px 0 13px!important;
+  margin-top:0!important;
+  margin-bottom:0!important;
+  border:1px solid #c7d9dc!important;
+  border-radius:9px!important;
+  background-color:#f7fafa!important;
+  background-image:linear-gradient(45deg,transparent 50%,#527078 50%),linear-gradient(135deg,#527078 50%,transparent 50%),linear-gradient(to bottom,#fff,#f1f6f6)!important;
+  background-position:calc(100% - 16px) 20px,calc(100% - 11px) 20px,0 0!important;
+  background-size:5px 5px,5px 5px,100% 100%!important;
+  background-repeat:no-repeat!important;
+  color:#304950!important;
+  font-family:Arial,Helvetica,sans-serif!important;
+  font-size:14px!important;
+  font-weight:600!important;
+  line-height:normal!important;
+  vertical-align:middle!important;
+}
+.toolbar select#statusFilter,.toolbar select#priorityFilter{width:25%!important;}
+.add-form .task-options select{width:49%!important;float:left!important;margin-right:1%!important;}
+.add-form .task-options select:last-child{width:50%!important;margin-right:0!important;}
+#eventOverlay select#eventStatus{width:100%!important;}
+@media(max-width:480px){
+ .toolbar select#statusFilter,.toolbar select#priorityFilter{width:49%!important;}
+ .add-form .task-options select,.add-form .task-options select:last-child{width:49%!important;margin-right:1%!important;}
+ .add-form .task-options select:last-child{width:50%!important;margin-right:0!important;}
+}
+
 /* V2.6.2 UI fixes: calendar must overlay the Add Important Date dialog. */
 #calendarOverlay{z-index:2200!important}
 #eventOverlay{z-index:1000!important}
